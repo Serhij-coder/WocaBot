@@ -1,3 +1,5 @@
+from random import random
+
 from playwright.sync_api import sync_playwright, Playwright
 from translate import Translator
 from langdetect import detect
@@ -90,6 +92,9 @@ def openExercise():
         translatorDe = translatorDeInit()
         page = browser.new_page()
 
+        isLoop = 0
+
+
         # Go to login page
         page.goto("https://www.wocabee.app/app/")
 
@@ -136,12 +141,98 @@ def openExercise():
                     page.locator('#translateWordSubmitBtn').click()
 
 
-            # elif exType == "findPair":
+            elif exType == "findPair":
+                page.locator('#q_words').nth(0).click()
+                page.locator('#a_words').nth(0).click()
+
+                # TODO: property logick
+                # for i in range (3):
+                #     x = page.locator('#q_words').nth(i).text_content()
+                #     x = getAnswer(x)
+                #     page.locator('#q_words').nth(i).click()
+                #     for j in range (3):
+                #         y = page.locator('#a_words').nth(j).text_content()
+                #         if x == y:
+                #             page.locator('#a_words').nth(j).click()
+                #         if j == 2:
+                #             page.locator('#a_words').nth(0).click()
+
+            elif exType == "oneOutOfMany":
+                toTranslate = page.locator('#oneOutOfManyQuestionWord').text_content()
+                ans = getAnswer(toTranslate)
+                if ans == "NoAnswer":
+                    page.locator('#oneOutOfManyWords').nth(0).click(force=True)
+                else:
+                    page.locator(f'text={ans}').nth(0).click(force=True)
+
+            elif exType == "completeWord":
+                toTranslate = page.locator('#completeWordQuestion').text_content()
+                nCompAnswer = page.locator('#completeWordAnswer').text_content()
+                ans = getAnswer(toTranslate)
+                print (f"To translate: {toTranslate}")
+                print(f"Not complete word: {nCompAnswer}")
+                print(f"Answer: {ans}")
+                letters = page.locator('#characters').nth(0).text_content()
+                print(f"Letters: {letters}")
+                ansLetters = ""
+
+                i = 0
+                for letter in ans:
+                    if nCompAnswer[i] == "_":
+                        ansLetters += letter
+                    i += 1
+                print("Answer Letters: " + ansLetters)
+
+                if ans == "NoAnswer":
+                    i = 0
+                    for letter in letters:
+                        page.locator(f'#characters span[index="{i}"]').click()
+                        i += 1
+                else:
+                    usedIndex = {-1}
+                    j = 0
+                    for ansLetter in ansLetters:
+                        i = 0
+                        for letter in letters:
+                            locator = page.locator(f'#characters span[index="{i}"]').text_content()
+                            if locator == ansLetter and i not in usedIndex:
+                                usedIndex.add(i)
+                                page.locator(f'#characters span[index="{i}"]').click()
+                                break
+                            i += 1
+                        j += 1
+                    page.locator('#completeWordSubmitBtn').click()
 
 
+                # if ans == "NoAnswer":
+                #     i = 0
+                #     for char in nCompAnswer:
+                #         if char == "_":
+                #             page.locator('#characters').nth(i).click(force=True)
+                #     i = i + 1
+                # else:
+                #     i = 0
+                #     for char in nCompAnswer:
+                #         if char == "_":
+                #             container = page.locator("#characters")
+                #             container.locator(f"text={ans[i]}").nth(0).click(force=True)
+                #     i = i + 1
+                # page.locator('#completeWordSubmitBtn').click(force=True)
+
+            elif exType == "translateFallingWord":
+                toTranslate = page.locator('#tfw_word').text_content()
+                ans = getAnswer(toTranslate)
+                if ans == "NoAnswer":
+                    page.locator('#translateFallingWordAnswer').fill("skip")
+                    page.locator('#translateFallingWordAnswer').blur()
+                    page.locator('#translateFallingWordSubmitBtn').click()
+                else:
+                    page.locator('#translateFallingWordAnswer').fill(ans)
+                    page.locator('#translateFallingWordAnswer').blur()
+                    page.locator('#translateFallingWordSubmitBtn').click()
 
             elif exType == "transcribe":
-                page.locator('#transcribeSkipBtn').click()
+                page.locator('#transcribeSkipBtn').click(force=True)
 
             elif exType == "incorrect":
                 rightQue = page.locator('.correctWordQuestion').text_content()
@@ -152,7 +243,10 @@ def openExercise():
             else:
                 print("ex not in list")
 
-            input("Press any key to continue: ")
+            if isLoop == 0:
+                input("Press any key to continue: ")
+
+            # isLoop = 1
 
 
 def main():
