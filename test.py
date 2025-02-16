@@ -1,8 +1,4 @@
-from random import random
-
 from playwright.sync_api import sync_playwright, Playwright
-from translate import Translator
-from langdetect import detect
 import json
 import config
 
@@ -41,20 +37,6 @@ def playwrightInit(p: Playwright):
     return browser  # Return the browser instance
 
 
-def translatorSkInit():
-    translatorSk = Translator(to_lang="de", from_lang="sk")
-    translated_text = translatorSk.translate("Ahoj, ako sa máš?")
-    print(translated_text)  # Outputs: "Hallo, wie geht es dir?"
-    return translatorSk
-
-
-def translatorDeInit():
-    translatorDe = Translator(to_lang="de", from_lang="sk")
-    translated_text = translatorDe.translate("Ahoj, ako sa máš?")
-    print(translated_text)  # Outputs: "Hallo, wie geht es dir?"
-    return translatorDe
-
-
 # Load existing answers from file
 def load_answers():
     try:
@@ -88,8 +70,6 @@ def getAnswer(question):
 def openExercise():
     with sync_playwright() as p:
         browser = playwrightInit(p)  # Initialize and store the browser
-        translatorSk = translatorSkInit()
-        translatorDe = translatorDeInit()
         page = browser.new_page()
 
         isLoop = 0
@@ -126,7 +106,13 @@ def openExercise():
                 if ans == "NoAnswer":
                     page.locator('#chooseWords').nth(0).click()
                 else:
-                    page.locator(f'text={ans}').nth(0).click()
+                    i = 0
+                    while True:
+                        var = page.locator('#chooseWords button').nth(i).text_content()
+                        if var == ans:
+                            page.locator('#chooseWords button').nth(i).click()
+                            break
+                        i += 1
 
             elif exType == "translateWord":
                 toTranslate = page.locator('#q_word').text_content()
@@ -140,30 +126,41 @@ def openExercise():
                     page.locator('#translateWordAnswer').blur()
                     page.locator('#translateWordSubmitBtn').click()
 
-
             elif exType == "findPair":
-                page.locator('#q_words').nth(0).click()
-                page.locator('#a_words').nth(0).click()
-
-                # TODO: property logick
-                # for i in range (3):
-                #     x = page.locator('#q_words').nth(i).text_content()
-                #     x = getAnswer(x)
-                #     page.locator('#q_words').nth(i).click()
-                #     for j in range (3):
-                #         y = page.locator('#a_words').nth(j).text_content()
-                #         if x == y:
-                #             page.locator('#a_words').nth(j).click()
-                #         if j == 2:
-                #             page.locator('#a_words').nth(0).click()
+                for i in range(3):
+                    toTranslate = page.locator("#q_words button").nth(i).text_content()
+                    ans = getAnswer(toTranslate)
+                    print("To Translate: " + toTranslate)
+                    print("Answer: " + ans)
+                    if ans == "NoAnswer":
+                        page.locator("#q_words button").nth(0).click()
+                        page.locator("#a_words button").nth(0).click()
+                        break
+                    for j in range(3):
+                        var = page.locator("#a_words button").nth(j).text_content()
+                        if var == ans:
+                            page.locator("#q_words button").nth(i).click()
+                            page.locator("#a_words button").nth(j).click()
+                            break
 
             elif exType == "oneOutOfMany":
-                toTranslate = page.locator('#oneOutOfManyQuestionWord').text_content()
+                #time.sleep(4)
+                page.locator("#oneOutOfManyQuestionWord").wait_for(state="visible")
+                toTranslate = page.locator("#oneOutOfManyQuestionWord").text_content()
                 ans = getAnswer(toTranslate)
+                print("To Translate: " + toTranslate)
+                print("Answer: " + ans)
                 if ans == "NoAnswer":
-                    page.locator('#oneOutOfManyWords').nth(0).click(force=True)
+                    page.locator('#oneOutOfManyWords').wait_for(state="visible")
+                    page.locator('#oneOutOfManyWords div').nth(0).click()
                 else:
-                    page.locator(f'text={ans}').nth(0).click(force=True)
+                    i = 0
+                    while True:
+                        var = page.locator('#oneOutOfManyWords div').nth(i).text_content()
+                        if var == ans:
+                            page.locator('#oneOutOfManyWords div').nth(i).click()
+                            break
+                        i += 1
 
             elif exType == "completeWord":
                 toTranslate = page.locator('#completeWordQuestion').text_content()
@@ -246,14 +243,10 @@ def openExercise():
             if isLoop == 0:
                 input("Press any key to continue: ")
 
-            # isLoop = 1
+            isLoop = 1
 
 
 def main():
-    # store_answer("What is 2 + 2?", "4")  # Storing an answer
-    #
-    # print(get_answer("What is 2 + 2?"))  # Output: 4
-    # print(get_answer("What is the capital of France?"))  # Output: No answer yet
     openExercise()
 
 
