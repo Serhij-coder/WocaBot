@@ -1,4 +1,6 @@
 # WocaBot
+## Warning:
+### Picture choose and pexeso do not work automatically (yet)
 ## Windows installation:
 ### 1. Clone or download repo
 ### 2. Install playwright
