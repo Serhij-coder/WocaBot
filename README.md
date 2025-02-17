@@ -45,4 +45,4 @@ PASSWORD = "password"
 ## MacOs installation:
 # <span style="color:red;"> I do not like MacOs. Find yourself how to do it.
 # Warning:
-## If you have any problems: "Ty si chyba!". **Try to fix it!?**
+## If you have any problems: "Ty si chyba! -- L. Lacko". **Try to fix it!?**
