@@ -1,4 +1,5 @@
 # WocaBot
+# Give me a star please 🙏🙏🙏🙏🙏
 ## Warning:
 ### Picture choose and pexeso do not work automatically (yet)
 ## Windows installation:
