@@ -87,8 +87,7 @@ def openExercise():
 
         # Go to class
         page.locator('a[href*="class/?class_id=110587&refresh=2024-10-10"]').click()
-        page.locator(
-            'a[href="./practice/?class_id=110587&package_id=1421197&mode=practice&refresh=2024-10-13"]').click()
+        # page.locator('a[href="./practice/?class_id=110587&package_id=1421197&mode=practice&refresh=2024-10-13"]').click()
 
         # Main exercises loop
         while True:

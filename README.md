@@ -1,48 +1,106 @@
 # WocaBot
-# Give me a star please 🙏🙏🙏🙏🙏
-## Warning:
-### Picture choose and pexeso do not work automatically (yet)
-## Windows installation:
-### 1. Clone or download repo
-### 2. Install playwright
-`pip install playwright`
+WocaBot is an automated bot that solves **WocaBee** tasks for you.
 
-`sudo npx playwright install`
-### 3. Configure config.py
-Comment `import myLogin` line
+## Installation
 
-Choose your browser `BROWSER  = "firefox"` from firefox or chromium or webkit
+### Windows:
+1. Clone or download the repository.
+2. Install Playwright:
+    ```sh
+    pip install playwright
+    sudo npx playwright install
+    ```
+3. Configure **config.py**:
+    - Comment out the line:
+      ```python
+      # import myLogin
+      ```
+    - Choose your browser (firefox, chromium, or webkit):
+      ```python
+      BROWSER = "firefox"
+      ```
+    - Enter your WocaBee login credentials:
+      ```python
+      LOGIN = "your_login"
+      PASSWORD = "your_password"
+      ```
+4. You’re done! 🎉
 
-Wright tour wocaBee Login and Password
-```
-LOGIN = "login"
-PASSWORD = "password"
-```
-### You are done (maybe)
+---
 
-## Linux installation:
-### 1. Clone or download repo (download reely?)
-### 2. Install playwright
-#### For arch and arch based:
-`sudo pacman -S Install playwright`
-#### Fedora and RHEL-based (Fedora, AlmaLinux, Rocky Linux, etc.):
-`sudo dnf install playwright`
-#### openSUSE
-`sudo zypper install playwright`
-### Are you kidding you must know if you use linux (you are better)
-### Do not forget about `playwright install`
-### 3. Configure config.py
-Comment `import myLogin` line
+### Linux:
+1. Clone or download the repository.
+2. Install Playwright:
 
-Choose your browser `BROWSER  = "firefox"` from firefox or chromium or webkit
+    **For Arch Linux:**  
+    ```sh
+    sudo pacman -S python-playwright
+    ```
+    **For Ubuntu/Debian:**  
+    ```sh
+    sudo apt install python3-pip
+    pip3 install playwright
+    ```
+    **For Fedora:**  
+    ```sh
+    sudo dnf install python3-pip
+    pip3 install playwright
+    ```
+    **For CentOS/RHEL:**  
+    ```sh
+    sudo yum install python3-pip
+    pip3 install playwright
+    ```
+    **For openSUSE:**  
+    ```sh
+    sudo zypper install python3-pip
+    pip3 install playwright
+    ```
+3. Install browsers:
+    ```sh
+    playwright install
+    ```
+4. Configure **config.py**:
+    - Comment out the line:
+      ```python
+      # import myLogin
+      ```
+    - Choose your browser (firefox, chromium, or webkit):
+      ```python
+      BROWSER = "firefox"
+      ```
+    - Enter your WocaBee login credentials:
+      ```python
+      LOGIN = "your_login"
+      PASSWORD = "your_password"
+      ```
+5. You’re done! 🎉
 
-Wright tour wocaBee Login and Password
-```
-LOGIN = "login"
-PASSWORD = "password"
-```
-### You are done (maybe)
-## MacOs installation:
-# <span style="color:red;"> I do not like MacOs. Find yourself how to do it.
-# Warning:
-## If you have any problems: "Ty si chyba! -- L. Lacko". **Try to fix it!?**
+---
+
+### macOS:
+🚧 **Coming Soon!**  
+
+---
+
+## Usage  
+1. Run the program:  
+    ```sh
+    python main.py
+    ```
+2. In the browser window, select the package you want to complete.  
+3. In the console window, press **Enter** to start the main loop.  
+4. Wait while the bot completes the tasks.  
+> A more user-friendly experience will be implemented soon.  
+
+---
+
+## ⚠️ Warnings  
+1. **The bot currently cannot solve pexeso and picture-based exercises.** (Coming soon!)  
+2. **The program is sensitive and may stop unexpectedly.**  
+   - It’s best to leave it running without interruptions.  
+3. **If the program crashes, all progress will be lost!**  
+   - If the console stops printing messages, the program will close in 30 seconds.  
+   - Save your progress before this happens!  
+
+---
