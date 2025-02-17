@@ -1,3 +1,5 @@
+import time
+
 from playwright.sync_api import sync_playwright, Playwright
 import json
 import config
@@ -185,6 +187,7 @@ def openExercise():
                     for letter in letters:
                         page.locator(f'#characters span[index="{i}"]').click()
                         i += 1
+                    page.locator('#completeWordSubmitBtn').click()
                 else:
                     usedIndex = {-1}
                     j = 0
@@ -227,6 +230,40 @@ def openExercise():
                     page.locator('#translateFallingWordAnswer').fill(ans)
                     page.locator('#translateFallingWordAnswer').blur()
                     page.locator('#translateFallingWordSubmitBtn').click()
+
+            # elif exType == "pexeso":
+            #     for i in range(4):
+            #         toTranslate = page.locator('#pq_words div').nth(i).text_content()
+            #         toTranslate = toTranslate.lstrip()
+            #         ans = getAnswer(toTranslate)
+            #         print("To Translate: " + toTranslate)
+            #         print("Answer: " + ans)
+            #         if ans == "NoAnswer":
+            #             page.locator('#pq_words div').nth(0).dblclick()
+            #             page.locator('#pa_words div').nth(0).dblclick()
+            #             time.sleep(1)
+            #             if exType == "pexeso":
+            #                 page.locator('#pq_words div').nth(1).dblclick()
+            #                 page.locator('#pa_words div').nth(1).dblclick()
+            #                 time.sleep(1)
+            #                 break
+            #                 if exType == "pexeso":
+            #                     page.locator('#pq_words div').nth(2).dblclick()
+            #                     page.locator('#pa_words div').nth(2).dblclick()
+            #                     time.sleep(1)
+            #                     break
+            #                     if exType == "pexeso":
+            #                         page.locator('#pq_words div').nth(3).dblclick()
+            #                         page.locator('#pa_words div').nth(3).dblclick()
+            #                         time.sleep(1)
+            #                         break
+            #             break
+            #         for j in range(4):
+            #             var = page.locator('#pa_words div').nth(j).text_content()
+            #             var = var.lstrip()
+            #             if var == ans:
+            #                 page.locator('#pq_words div').nth(i).dblclick()
+            #                 page.locator('#pa_words div').nth(j).dblclick()
 
             elif exType == "transcribe":
                 page.locator('#transcribeSkipBtn').click(force=True)
