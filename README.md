@@ -79,8 +79,28 @@ WocaBot is an automated bot that solves **WocaBee** tasks for you.
 ---
 
 ### macOS:
-🚧 **Coming Soon!**  
-
+1. Clone or download the repository.
+2. In project directory:
+   ```
+   npm init -y
+   npm install -D @playwright/test
+   npx playwright install
+   ```
+3. Configure **config.py**:
+    - Comment out the line:
+      ```python
+      # import myLogin
+      ```
+    - Choose your browser (firefox, chromium, or webkit):
+      ```python
+      BROWSER = "firefox"
+      ```
+    - Enter your WocaBee login credentials:
+      ```python
+      LOGIN = "your_login"
+      PASSWORD = "your_password"
+      ```
+4. You’re done! 🎉
 ---
 
 ## Usage  
