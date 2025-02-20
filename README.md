@@ -1,6 +1,8 @@
 # WocaBot
 WocaBot is an automated bot that solves **WocaBee** tasks for you.
 
+![Alt text](WocaBot.webp "a title")
+
 ## Installation
 
 ### Windows:
