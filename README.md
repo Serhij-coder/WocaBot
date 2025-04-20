@@ -1,128 +1,152 @@
-# WocaBot
-WocaBot is an automated bot that solves **WocaBee** tasks for you.
+<h1 align="center">
+  <br>
+  <img src="./res/logo.png" alt="Markdownify" width="300"></a>
+  <br>
+  WocaBot
+  <br>
+</h1>
 
-<img src="WocaBot.webp" alt="My Image" width="200" height="200">
+<h4 align="center">Bot which will solve Wocabee for you.</h4>
+
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#license">License</a>
+</p>
+
+![screenshot](./res/meme.jpg)
+
+## Key Features
+
+* Fully automated (except pexeso)
+* Have modes:
+  - Normal for packages
+  - Training for points farming
+  - And test for school (beta)
+* Can solve
+  - Word translation
+  - Word completion
+  - Word choosing
+  - Finding pair
+  - One out of many
+  - Picture choosing
+  - Picture description (only skip)
+  - Words arranging (only skip)
+  - And missing word
+* Good readability and scalability of code
+* CLI interface
+* Cross platform
+  - Windows, macOS and Linux ready.
+* I think it is enaugh. Who want to do wocabee anyway? :D
+
+## How To Use
+
+### Start
+
+To start bot you need to run `wocabot.py` file. You can do it by running command:
+```bash
+  python wocabot.py
+```
+Than select mode by writing number of mode you want to use:
+
+![modeSelection](res/modeSelection)
+> [!NOTE]
+> You can setup default mode in `config.py` file.
+>
+> 0 - For choosing mode every time
+
+Than browser window will open. You need to choose your class:
+
+![classSelection](res/classSelection)
+
+When you choose class, you need to click enter to start bot and continue with instructions.
+
+### Modes overview
+#### Mod 1
+
+Normal mod which will do all uncompleted packages.\
+It will automatically go through all packages and do all exercises(except pexeso).\
+
+#### Mod 2
+Training mod which will do wocabee training.\
+It will start do training and will finis only when user stop it.
+> [!WARNING]
+> You need to click submit and exit than stop bot
+
+> [!TIP]
+> It`s the best way to farm wocapoints if you need to win some competition.
+
+#### Mod 3
+
+This mod is designed for school tests.\
+And include 2 own submods:\
+**Semi automatic**\
+Will prepare ansvers for you and you need to click submit.
+
+> [!TIP]
+> Do some mistakes or wait for some time to not be suspicious.
+> 
+**Automatic**\
+Will do everything for you.
+
+> [!CAUTION]
+> Dont implemented yet.
 
 ## Installation
 
-### Windows:
-1. Clone or download the repository.
-2. Install Playwright:
-    ```sh
-    pip install playwright
-    sudo npx playwright install
-    ```
-3. Configure **config.py**:
-    - Comment out the line:
-      ```python
-      # import myLogin
-      ```
-    - Choose your browser (firefox, chromium, or webkit):
-      ```python
-      BROWSER = "firefox"
-      ```
-    - Enter your WocaBee login credentials:
-      ```python
-      LOGIN = "your_login"
-      PASSWORD = "your_password"
-      ```
-4. You’re done! 🎉
+For all OS you need to have installed google chrome and python.
+
+### Linux
+Use your package manager to install python-playwright.
+```bash
+  sudo pacman -S python-playwright
+  sudo apt install python-playwright 
+  ...
+```
+
+## Emailware
+
+Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
+
+## Credits
+
+This software uses the following open source packages:
+
+- [Electron](http://electron.atom.io/)
+- [Node.js](https://nodejs.org/)
+- [Marked - a markdown parser](https://github.com/chjj/marked)
+- [showdown](http://showdownjs.github.io/showdown/)
+- [CodeMirror](http://codemirror.net/)
+- Emojis are taken from [here](https://github.com/arvida/emoji-cheat-sheet.com)
+- [highlight.js](https://highlightjs.org/)
+
+## Related
+
+[Try Web version of Markdownify](https://notepad.js.org/markdown-editor/)
+
+## Support
+
+<a href="https://buymeacoffee.com/amitmerchant" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+<p>Or</p> 
+
+<a href="https://www.patreon.com/amitmerchant">
+	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+
+## You may also like...
+
+- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
+- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
+
+## License
+
+MIT
 
 ---
 
-### Linux:
-1. Clone or download the repository.
-2. Install Playwright:
+> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
+> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
+> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
 
-    **For Arch Linux:**  
-    ```sh
-    sudo pacman -S python-playwright
-    ```
-    **For Ubuntu/Debian:**  
-    ```sh
-    sudo apt install python3-pip
-    pip3 install playwright
-    ```
-    **For Fedora:**  
-    ```sh
-    sudo dnf install python3-pip
-    pip3 install playwright
-    ```
-    **For CentOS/RHEL:**  
-    ```sh
-    sudo yum install python3-pip
-    pip3 install playwright
-    ```
-    **For openSUSE:**  
-    ```sh
-    sudo zypper install python3-pip
-    pip3 install playwright
-    ```
-3. Install browsers:
-    ```sh
-    playwright install
-    ```
-4. Configure **config.py**:
-    - Comment out the line:
-      ```python
-      # import myLogin
-      ```
-    - Choose your browser (firefox, chromium, or webkit):
-      ```python
-      BROWSER = "firefox"
-      ```
-    - Enter your WocaBee login credentials:
-      ```python
-      LOGIN = "your_login"
-      PASSWORD = "your_password"
-      ```
-5. You’re done! 🎉
-
----
-
-### macOS:
-1. Clone or download the repository.
-2. In project directory:
-   ```
-   npm init -y
-   npm install -D @playwright/test
-   npx playwright install
-   ```
-3. Configure **config.py**:
-    - Comment out the line:
-      ```python
-      # import myLogin
-      ```
-    - Choose your browser (firefox, chromium, or webkit):
-      ```python
-      BROWSER = "firefox"
-      ```
-    - Enter your WocaBee login credentials:
-      ```python
-      LOGIN = "your_login"
-      PASSWORD = "your_password"
-      ```
-4. You’re done! 🎉
----
-
-## Usage  
-1. Run the program:  
-    ```sh
-    python main.py
-    ```
-2. In the browser window, select the package you want to complete.  
-3. In the console window, press **Enter** to start the main loop.  
-4. Wait while the bot completes the tasks.  
-> A more user-friendly experience will be implemented soon.  
-
----
-
-## ⚠️ Warnings  
-1. **The bot currently cannot solve pexeso and picture-based exercises.** (Coming soon!)  
-2. **The program is sensitive and may stop unexpectedly.**  
-   - It’s best to leave it running without interruptions.  
-3. **If the program crashes, all progress will be lost!**  
-   - If the console stops printing messages, the program will close in 30 seconds.  
-   - Save your progress before this happens!  
-
----
