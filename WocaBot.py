@@ -152,11 +152,11 @@ def doTraining(page):
         elif exType == "describePicture":
             solveDescribePicture(page, config)
         elif exType == "arrangeWords":
-            solveArrangeWords()
+            solveArrangeWords(page, config)
         elif exType == "addMissingWord":
-                solveAddMissingWord(page, config)
+            solveAddMissingWord(page, config)
         elif exType == "pexeso":
-            warnBlink()
+            solvePexeso(page, config)
 
 def doAll(page):
     debug("Beginning to do all packages", config)
@@ -243,7 +243,7 @@ def doAll(page):
             elif exType == "addMissingWord":
                 solveAddMissingWord(page, config)
             elif exType == "pexeso":
-                warnBlink()
+                solvePexeso(page, config)
 
             if progres == "100%":
                 sleep(3)
