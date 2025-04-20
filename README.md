@@ -45,9 +45,9 @@
 
 ### Start
 
-To start bot you need to run `wocabot.py` file. You can do it by running command:
+To start bot you need to run `WocaBot.py` file. You can do it by running command:
 ```bash
-  python wocabot.py
+  python WocaBot.py
 ```
 Then select mode by writing number of mode you want to use:
 
