@@ -62,6 +62,8 @@ Than browser window will open. You need to choose your class:
 
 When you choose class, you need to click enter to start bot and continue with instructions.
 
+---
+
 ### Modes overview
 #### Mod 1
 
@@ -95,6 +97,8 @@ Will do everything for you.
 > Dont implemented yet.
 
 ## Installation
+
+---
 
 For all OS you need to have installed Google Chrome and python.
 
@@ -133,6 +137,8 @@ And install chromium with npx:
 Final step is to <a href="#json-config">configure json</a>
 
 Congratulation, you are ready to go.
+
+---
 
 ### Json config
 Open `config.py` file and set your username and password.
