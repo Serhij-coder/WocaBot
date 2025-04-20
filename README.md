@@ -15,7 +15,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](./res/meme.jpg)
+![meme](./res/meme.jpg)
 
 ## Key Features
 
