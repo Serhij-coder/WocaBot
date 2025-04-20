@@ -1,3 +1,5 @@
+from curses.ascii import isspace
+
 from bot.DB import readAnsver
 from bot.cli import debug
 
@@ -57,4 +59,54 @@ def solveChoseWord(page, config):
                 page.locator('.chooseWordAnswer').nth(i).click()
                 break
             i += 1
-        debug(f"Count: {i}", config)
+            debug(f"Count: {i}", config)
+            if i >= 3:
+                debug("No answer found, clicking first option", config)
+                page.locator('.chooseWordAnswer').nth(0).click()
+
+def solvePexeso(page, config):
+    for i in range(4):
+        toTranslate = page.locator('.pexesoWord').nth(i).text_content()
+        isSpace = True
+        newText = ""
+        for let in toTranslate:
+            if let == " " and isSpace:
+                ...
+            else:
+                isSpace = False
+                newText += let
+        toTranslate = newText
+        ans = readAnsver(toTranslate)
+        debug("To Translate: " + toTranslate, config)
+        debug("Answer: " + ans, config)
+        if ans == "NoAnswer":
+            debug("No answer found, clicking first option", config)
+            for j in range(4):
+                page.set_default_timeout(1000)
+                try:
+                    page.locator('.pexesoWord').nth(j).click()
+                    page.locator('.pexesoWord').nth(j).click()
+                    page.locator('.pexesoTranslation').nth(j).click()
+                    page.locator('.pexesoTranslation').nth(j).click()
+                except:
+                    ...
+                page.set_default_timeout(10000)
+        else:
+            debug("Answer found, clicking the correct option", config)
+            page.locator('.pexesoWord').nth(i).click()
+            page.locator('.pexesoWord').nth(i).click()
+            for j in range(4):
+                text = page.locator('.pexesoWord').nth(i).text_content()
+                isSpace = True
+                newText = ""
+                for let in text:
+                    if let == " " and isSpace:
+                        ...
+                    else:
+                        isSpace = False
+                        newText += let
+                text = newText
+                if text == ans:
+                    page.locator('.pexesoTranslation').nth(j).click()
+                    page.locator('.pexesoTranslation').nth(j).click()
+                    break

@@ -112,8 +112,8 @@ def solveAddMissingWord(page, config):
 
     if ans == "NoAnswer":
         debug("No answer found, scip", config)
-        page.locator('#addMissingWordAnswer').nth(0).fill("interresant")
-        page.locator('#addMissingWordAnswer').nth(0).blur()
+        page.locator('#missingWordAnswer').nth(0).fill("DieserSatzsolltelangsein.")
+        page.locator('#missingWordAnswerr').nth(0).blur()
         page.locator('#addMissingWordSubmitBtn').click()
         return
 
