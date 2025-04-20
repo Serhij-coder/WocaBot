@@ -68,7 +68,7 @@ When you choose class, you need to click enter to start bot and continue with in
 #### Mod 1
 
 Normal mod which will do all uncompleted packages.\
-It will automatically go through all packages and do all exercises(except pexeso).\
+It will automatically go through all packages and do all exercises(except pexeso).
 
 #### Mod 2
 Training mod which will do wocabee training.\
