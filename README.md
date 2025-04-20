@@ -98,8 +98,6 @@ Will do everything for you.
 
 ## Installation
 
----
-
 For all OS you need to have installed Google Chrome and python.
 
 ### Linux / MacOS
