@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="./res/logo.png" alt="Markdownify" width="300"></a>
+  <img src="./res/logo.png" width="300"></a>
   <br>
   WocaBot
   <br>
