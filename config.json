@@ -1,6 +1,6 @@
 {
-  "login": "yourLogin",
-  "password": "yourPassword",
+  "login": "your_login",
+  "password": "your_password",
 
   "mode": "0",
   "testMode": "0",
