@@ -126,41 +126,37 @@ def doTraining(page):
         info(f"Win streak: {winStreak}")
         erase_last_line()
 
-        try:
-            if exType == "None":
-                debug("Waiting for exercise to load...", config)
-            elif exType == "incorrect":
-                rightQue = page.locator('.correctWordQuestion').text_content()
-                rightAns = page.locator('.correctWordAnswer').text_content()
-                wrightAnsver(rightQue, rightAns)
-                page.locator('#incorrect-next-button').click()
-            elif exType == "transcribe":
-                page.locator('#transcribeSkipBtn').click(force=True)
-            elif exType == "translateWord":
-                solveTranslateWord(page, config)
-            elif exType == "translateFallingWord":
-                solveTranslateFallingWord(page, config)
-            elif exType == "completeWord":
-                solveCompleteWord(page, config)
-            elif exType == "chooseWord":
-                solveChoseWord(page, config)
-            elif exType == "findPair":
-                solveFindPair(page, config)
-            elif exType == "oneOutOfMany":
-                solveOneOutOfMany(page, config)
-            elif exType == "choosePicture":
-                solveChosePicture(page, config)
-            elif exType == "describePicture":
-                solveDescribePicture(page, config)
-            elif exType == "arrangeWords":
-                solveArrangeWords(page, config)
-            elif exType == "addMissingWord":
-                solveAddMissingWord(page, config)
-            elif exType == "pexeso":
-                solvePexeso(page, config)
-        except Exception as e:
-            error("Error while solving exercise")
-            print(e)
+        if exType == "None":
+            debug("Waiting for exercise to load...", config)
+        elif exType == "incorrect":
+            rightQue = page.locator('.correctWordQuestion').text_content()
+            rightAns = page.locator('.correctWordAnswer').text_content()
+            wrightAnsver(rightQue, rightAns)
+            page.locator('#incorrect-next-button').click()
+        elif exType == "transcribe":
+            page.locator('#transcribeSkipBtn').click(force=True)
+        elif exType == "translateWord":
+            solveTranslateWord(page, config)
+        elif exType == "translateFallingWord":
+            solveTranslateFallingWord(page, config)
+        elif exType == "completeWord":
+            solveCompleteWord(page, config)
+        elif exType == "chooseWord":
+            solveChoseWord(page, config)
+        elif exType == "findPair":
+            solveFindPair(page, config)
+        elif exType == "oneOutOfMany":
+            solveOneOutOfMany(page, config)
+        elif exType == "choosePicture":
+            solveChosePicture(page, config)
+        elif exType == "describePicture":
+            solveDescribePicture(page, config)
+        elif exType == "arrangeWords":
+            solveArrangeWords(page, config)
+        elif exType == "addMissingWord":
+            solveAddMissingWord(page, config)
+        elif exType == "pexeso":
+            solvePexeso(page, config)
 
 def doAll(page):
     debug("Beginning to do all packages", config)
@@ -247,7 +243,7 @@ def doAll(page):
             elif exType == "addMissingWord":
                 solveAddMissingWord(page, config)
             elif exType == "pexeso":
-                warnBlink()
+                solvePexeso(page, config)
 
             if progres == "100%":
                 sleep(3)
