@@ -36,9 +36,9 @@
   - And missing word
 * Good readability and scalability of code
 * CLI interface
-* Cross platform
+* Cross-platform
   - Windows, macOS and Linux ready.
-* I think it is enaugh. Who want to do wocabee anyway? :D
+* I think it is enough. Who wants to do wocabee anyway? :D
 
 ## How To Use
 
@@ -48,11 +48,11 @@ To start bot you need to run `wocabot.py` file. You can do it by running command
 ```bash
   python wocabot.py
 ```
-Than select mode by writing number of mode you want to use:
+Then select mode by writing number of mode you want to use:
 
 ![modeSelection](res/modeSelection)
 > [!NOTE]
-> You can setup default mode in `config.py` file.
+> You can set up default mode in `config.py` file.
 >
 > 0 - For choosing mode every time
 
@@ -80,13 +80,14 @@ It will start do training and will finis only when user stop it.
 #### Mod 3
 
 This mod is designed for school tests.\
-And include 2 own submods:\
-**Semi automatic**\
-Will prepare ansvers for you and you need to click submit.
+And include 2 own submods:
+
+**Semi-automatic**\
+Will prepare answers for you and you need to click submit.
 
 > [!TIP]
 > Do some mistakes or wait for some time to not be suspicious.
-> 
+
 **Automatic**\
 Will do everything for you.
 
@@ -95,58 +96,55 @@ Will do everything for you.
 
 ## Installation
 
-For all OS you need to have installed google chrome and python.
+For all OS you need to have installed Google Chrome and python.
 
-### Linux
+### Linux / MacOS
 Use your package manager to install python-playwright.
 ```bash
   sudo pacman -S python-playwright
   sudo apt install python-playwright 
   ...
 ```
+Than install chromium:
+```bash
+  playwright install --force chromium
+```
+Than clone repo or [download](https://www.dropbox.com/scl/fi/8lbv9g3wpzfwyu6bl81l2/WocaBot.tar.gz?rlkey=phzxgen4ym96dp07hdui33fak&st=kd2nbtd0&dl=0) archive
+```bash
+  git clone --branch relese --single-branch https://github.com/Serhij-coder/WocaBot.git
+```
+Final step is to <a href="#json-config">configure json</a>
 
-## Emailware
+Congratulation, you are ready to go.
 
-Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
+### Windows
+Clone repo or [download](https://www.dropbox.com/scl/fi/l57p408hfsjw2f6n4r6nl/WocaBot.zip?rlkey=vrw1tukztzth1htz3nvuq58b2&st=yhqoejr3&dl=0) archive
+```bash
+  git clone --branch relese --single-branch https://github.com/Serhij-coder/WocaBot.git
+```
+Than install python-playwright:
+```commandline
+  pip install playwright
+```
+And install chromium with npx:
+```commandline
+  sudo npx playwright install
+```
+Final step is to <a href="#json-config">configure json</a>
 
-## Credits
+Congratulation, you are ready to go.
 
-This software uses the following open source packages:
+### Json config
+Open `config.py` file and set your username and password.
 
-- [Electron](http://electron.atom.io/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
-- [showdown](http://showdownjs.github.io/showdown/)
-- [CodeMirror](http://codemirror.net/)
-- Emojis are taken from [here](https://github.com/arvida/emoji-cheat-sheet.com)
-- [highlight.js](https://highlightjs.org/)
+![json](res/json)
 
-## Related
-
-[Try Web version of Markdownify](https://notepad.js.org/markdown-editor/)
-
-## Support
-
-<a href="https://buymeacoffee.com/amitmerchant" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-<p>Or</p> 
-
-<a href="https://www.patreon.com/amitmerchant">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
-
-## You may also like...
-
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
+> [!TIP]
+> You can choose default mode (0 for choosing in program).
+> 
+> ![modesJson](res/modesJson)
 
 ## License
 
-MIT
-
----
-
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
-> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
+GPL-3.0 License. See the [LICENSE](LICENSE) file for details.
 
