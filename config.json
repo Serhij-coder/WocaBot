@@ -1,0 +1,9 @@
+{
+  "login": "yourLogin",
+  "password": "yourPassword",
+
+  "mode": "0",
+  "testMode": "0",
+
+  "isDebug": false
+}
