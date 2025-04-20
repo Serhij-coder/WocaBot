@@ -113,7 +113,7 @@ Than install chromium:
 ```
 Than clone repo or [download](https://www.dropbox.com/scl/fi/8lbv9g3wpzfwyu6bl81l2/WocaBot.tar.gz?rlkey=phzxgen4ym96dp07hdui33fak&st=kd2nbtd0&dl=0) archive
 ```bash
-  git clone --branch relese --single-branch https://github.com/Serhij-coder/WocaBot.git
+  git clone --branch release --single-branch https://github.com/Serhij-coder/WocaBot.git
 ```
 Final step is to <a href="#json-config">configure json</a>
 
@@ -122,7 +122,7 @@ Congratulation, you are ready to go.
 ### Windows
 Clone repo or [download](https://www.dropbox.com/scl/fi/l57p408hfsjw2f6n4r6nl/WocaBot.zip?rlkey=vrw1tukztzth1htz3nvuq58b2&st=yhqoejr3&dl=0) archive
 ```bash
-  git clone --branch relese --single-branch https://github.com/Serhij-coder/WocaBot.git
+  git clone --branch release --single-branch https://github.com/Serhij-coder/WocaBot.git
 ```
 Than install python-playwright:
 ```commandline
