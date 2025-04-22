@@ -1,6 +1,7 @@
 import json
 import sys
 from time import sleep
+from PySide6.QtWidgets import QApplication
 from playwright.sync_api import sync_playwright
 from bot.cli import controleAllFiles, clear_console, erase_last_line, choseMode, choseTestMode
 from bot.cli import info, error, debug, success, warning, warnBlink
@@ -8,6 +9,7 @@ from bot.DB import wrightAnsver, readAnsver
 from bot.solvers.solveText import *
 from bot.solvers.solveSelect import *
 from bot.solvers.solvePicture import *
+from bot.UI.ui import mainWindow
 
 controleAllFiles()
 clear_console()
@@ -274,4 +276,9 @@ def login(page):
     success("Logged in successfully")
 
 if __name__ == "__main__":
-    main()
+    #main()
+    app = QApplication(sys.argv)
+    window = mainWindow()
+    window.show()
+    sys.exit(app.exec())
+
